@@ -329,11 +329,11 @@
       </build>
     </profile>
 
-    <!-- The cloud integration tests will stop a currently running sample application (cleanup-cloud-application), deploy 
-         the sample application (deploy-cloud-application), allow samples to run sample specific application configurations (prepare-cloud-application), 
-         start the cloud application and wait for it to become available (start-cloud-application), run the integration tests with 
+    <!-- The cloud integration tests will stop a currently running sample application (cleanup-cloud-application), deploy
+         the sample application (deploy-cloud-application), allow samples to run sample specific application configurations (prepare-cloud-application),
+         start the cloud application and wait for it to become available (start-cloud-application), run the integration tests with
          the maven-failsafe-plugin (execute-cloud-integration-tests) and finally stop the cloud application (stop-cloud-application) -->
-    <!-- Note that you need to provide Maven properties sap.cloud.account, sap.cloud.username, and sap.cloud.password 
+    <!-- Note that you need to provide Maven properties sap.cloud.account, sap.cloud.username, and sap.cloud.password
          for the operations to pass successfully and https.proxyHost and possibly https.proxyPort if you have a proxy! -->
     <profile>
       <id>cloud-integration-tests</id>
@@ -394,7 +394,7 @@
 		</goals>
 		<configuration>
 		  <!-- Following console command is used to deploy the application to the QA environment -->
-		  <consoleCommand>deploy -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>			              
+		  <consoleCommand>deploy -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
 		</configuration>
 	      </execution>
 	      <execution>
@@ -405,7 +405,7 @@
 		</goals>
 		<configuration>
 		  <!-- The console commandis used to restart the application inorder to reflect the changes -->
-		  <consoleCommand>restart -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password}</consoleCommand>			              
+		  <consoleCommand>restart -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password}</consoleCommand>
 		</configuration>
 	      </execution>
               <execution>
@@ -422,8 +422,8 @@
                   <goal>deploy</goal>
                 </goals>
               </execution>
-              <!-- This execution can be overridden in the sample pom.xml in order to execute additional steps 
-                   between deployment and start of the sample application. The additional execution must be specified with the neo-java-web-maven-plugin 
+              <!-- This execution can be overridden in the sample pom.xml in order to execute additional steps
+                   between deployment and start of the sample application. The additional execution must be specified with the neo-java-web-maven-plugin
                    and the same id "prepare-cloud-application" and phase "pre-integration-test" -->
               <execution>
                 <id>prepare-cloud-application</id>
@@ -489,10 +489,10 @@
       </build>
     </profile>
 
-    <!-- The local integration tests will install a local server from the repository that is contained inside the SAP Cloud 
-         Platform SDK (install-local-server), deploy the sample application (deploy-local-application), allow samples to run 
-         sample specific application configurations (prepare-local-application), start the local server and wait for the deployed 
-         sample application to become available (start-local-server), run the integration tests with the maven-failsafe-plugin (execute-local-integration-tests) 
+    <!-- The local integration tests will install a local server from the repository that is contained inside the SAP Cloud
+         Platform SDK (install-local-server), deploy the sample application (deploy-local-application), allow samples to run
+         sample specific application configurations (prepare-local-application), start the local server and wait for the deployed
+         sample application to become available (start-local-server), run the integration tests with the maven-failsafe-plugin (execute-local-integration-tests)
          and finally stop the local server (stop-local-server) -->
     <!-- Note that you need to provide Maven properties https.proxyHost and possibly https.proxyPort if you have a proxy! -->
     <profile>
@@ -520,7 +520,7 @@
                   <goal>deploy-local</goal>
                 </goals>
               </execution>
-              <!-- The maven-antrun-plugin execution prepare-local-application defined farther below will run 
+              <!-- The maven-antrun-plugin execution prepare-local-application defined farther below will run
                    between this deploy-local-application and start-local-server executions -->
               <execution>
                 <id>start-local-server</id>
@@ -555,8 +555,8 @@
             <artifactId>maven-antrun-plugin</artifactId>
             <version>1.7</version>
             <executions>
-              <!-- This execution can be overridden in the sample pom.xml in order to execute additional steps 
-                   between deployment and start of the sample application. The additional execution must be specified with the maven-antrun-plugin 
+              <!-- This execution can be overridden in the sample pom.xml in order to execute additional steps
+                   between deployment and start of the sample application. The additional execution must be specified with the maven-antrun-plugin
                    and same id "prepare-local-application" and phase "pre-integration-test" -->
               <execution>
                 <id>prepare-local-application</id>
@@ -600,7 +600,7 @@
       </build>
     </profile>
 
-    <!-- If HTTPS Internet access requires a proxy the Maven Plugin for SAP Cloud Platform and the Failsafe plugin 
+    <!-- If HTTPS Internet access requires a proxy the Maven Plugin for SAP Cloud Platform and the Failsafe plugin
          running the integration tests need to know of it (the profile will auto-activate if https.proxyHost is provided) -->
     <profile>
       <id>use-https-proxy</id>
@@ -667,8 +667,8 @@
                   <goal>run-console-command</goal>
 		</goals>
 		<configuration>
-		          <consoleCommand>rolling-update -a i312624trial -b helloworld -h hanatrial.ondemand.com -u i312624 -p Saplabs@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
-                  <!--consoleCommand>rolling-update -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand-->                 
+		          <consoleCommand>rolling-update -a i312624trial -b helloworld -h hanatrial.ondemand.com -u i339568 -p Sarala51 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
+                  <!--consoleCommand>rolling-update -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand-->
 		</configuration>
               </execution>
             </executions>
